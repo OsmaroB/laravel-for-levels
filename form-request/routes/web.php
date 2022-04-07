@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +16,6 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
-Route::resource('pages', PageController::class)->middleware('auth');
+Route::post('post', [PostController::class, 'store'])->name('post.store');

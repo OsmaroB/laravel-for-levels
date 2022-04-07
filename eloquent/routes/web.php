@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
-
+use App\Models\Post;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,8 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
-Route::resource('pages', PageController::class)->middleware('auth');
+Route::get('eloquent', [PostController::class, 'index'])->name('eloquent.read');
+Route::get('eloquent/read', [PostController::class, 'readSpecific'])->name('eloquent.readSpecific');
+
