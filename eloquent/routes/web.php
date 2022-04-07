@@ -20,4 +20,8 @@ Route::get('/', function () {
 
 Route::get('eloquent', [PostController::class, 'index'])->name('eloquent.read');
 Route::get('eloquent/read', [PostController::class, 'readSpecific'])->name('eloquent.readSpecific');
+Route::get('eloquent/posts', [PostController::class, 'posts'])->name('posts.read');
+Route::get('eloquent/users', [PostController::class, 'users'])->name('users.read');
+Route::get('eloquent/collections', [PostController::class, 'collections'])->name('collections.read');
+Route::get('eloquent/serialization', [PostController::class, 'serialization'])->name('serialization.read');
 

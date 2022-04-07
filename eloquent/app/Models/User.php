@@ -41,4 +41,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    //importante que tenga get al principio y Attribute al final lo del medio es como se llamara despues en el controller
+    public function getGetNameAttribute(){
+        return strtoupper($this->name);
+    }
+
+    public function setNameAttribute($value){
+        $this->attributes['name'] = strtolower($value);
+    }
 }
