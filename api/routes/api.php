@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('posts', PostController::class);
+// esto hace que tenga de una sola vez las rutas normales de una api
+Route::apiResource('posts', PostController::class)->middleware('auth:api');
